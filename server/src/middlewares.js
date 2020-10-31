@@ -17,7 +17,6 @@ const errorHandler = (error, _req, res, _next) => {
   });
 };
 
-
 // 'module' is referring to this file
 module.exports = {
   notFound,

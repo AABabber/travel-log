@@ -12,7 +12,8 @@ const logs = require('./api/logs')
 const app = express();
 
 mongoose.connect(process.env.DATABASE_URL, {
-  useNewUrlParser: true
+  useNewUrlParser: true,
+  useUnifiedTopology: true
 });
 
 app.use(morgan('common'));
@@ -20,6 +21,9 @@ app.use(helmet());
 app.use(cors({
   origin: process.env.CORS_ORIGIN
 }));
+// Body-parsing middleware; previously, Express did 
+// not come with it included
+app.use(express.json());
 
 // We *can* add 'next' to this request if we want;
 // it'll go onto some other middleware (?) then

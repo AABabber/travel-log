@@ -118,3 +118,4 @@ dist
 # Other
 server/.vscode/
 server/.eslintrc.js
+.env

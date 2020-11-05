@@ -6,7 +6,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import { listLogEntries } from './API'
 import LogEntryForm from './LogEntryForm'
 
-// TODO: Add unique key to list components ('Each child in a list should have a unique "key" prop.')
+// DONE: Solve 'Each child in a list should have a unique "key" prop.' - used React.Fragment 
 // TODO: Update Denver Aquarium coordinates
 const App = () => {
   const [logEntries, setLogEntries] = useState([]);
@@ -20,11 +20,13 @@ const App = () => {
     zoom: 3
   });
 
+  const getEntries = async () => {
+    const logEntries = await listLogEntries();
+    setLogEntries(logEntries);
+  };
+
   useEffect(() => {
-    (async () => {
-      const logEntries = await listLogEntries();
-      setLogEntries(logEntries);
-    })();
+    getEntries();
   }, []);
 
   const showAddMarkerPopup = (event) => {
@@ -45,9 +47,8 @@ const App = () => {
     >
       {
         logEntries.map(entry => (
-          <>
+          <React.Fragment key={entry._id}>
             <Marker
-              key={entry._id}
               latitude={entry.latitude}
               longitude={entry.longitude}
               offsetLeft={-12}
@@ -76,6 +77,7 @@ const App = () => {
                 </svg>
               </div>
             </Marker>
+            {/* TODO: Add missing fields to popup */}
             {
               showPopup[entry._id] ? (
                 <Popup
@@ -89,11 +91,12 @@ const App = () => {
                     <h3>{entry.title}</h3>
                     <p>{entry.comments}</p>
                     <small>Visited On: {new Date(entry.visitDate).toLocaleDateString()}</small>
+                    { entry.image && <img src={entry.image} alt={entry.title}/> }
                   </div>
                 </Popup>
               ) : null
             }
-          </>
+          </React.Fragment>
         ))
       }
       {
@@ -131,7 +134,10 @@ const App = () => {
               onClose={() => setAddEntryLocation(null)}
               anchor="top" >
               <div className="popup">
-                <LogEntryForm></LogEntryForm>
+                <LogEntryForm onClose={() => {
+                  setAddEntryLocation(null);
+                  getEntries();
+                }} location={addEntryLocation} />
               </div>
             </Popup>
           </>

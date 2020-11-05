@@ -9314,6 +9314,11 @@
   "resolved" "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.0.8.tgz"
   "version" "6.0.8"
 
+"react-hook-form@^6.10.1":
+  "integrity" "sha512-tPfNu2q8HUUKL4gOsJzzoBX8+3y2brJk+61TO+RO9GtpLnWPptLrAIupMtyPeENMpLmLfBKHhT9nfezHLTW2mA=="
+  "resolved" "https://registry.npmjs.org/react-hook-form/-/react-hook-form-6.10.1.tgz"
+  "version" "6.10.1"
+
 "react-is@^16.8.1":
   "integrity" "sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ=="
   "resolved" "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz"
@@ -9412,7 +9417,7 @@
   "resolved" "https://registry.npmjs.org/react-virtualized-auto-sizer/-/react-virtualized-auto-sizer-1.0.2.tgz"
   "version" "1.0.2"
 
-"react@*", "react@^15.3.0 || ^16.0.0-alpha", "react@^16.14.0", "react@^17.0.1", "react@>=16.3.0", "react@17.0.1":
+"react@*", "react@^15.3.0 || ^16.0.0-alpha", "react@^16.14.0", "react@^16.8.0 || ^17", "react@^17.0.1", "react@>=16.3.0", "react@17.0.1":
   "integrity" "sha512-lG9c9UuMHdcAexXtigOZLX8exLWkW0Ku29qPRU8uhF2R9BN96dLCt0psvzPLlHc5OWkgymP3qwTRgbnw5BKx3w=="
   "resolved" "https://registry.yarnpkg.com/react/-/react-17.0.1.tgz"
   "version" "17.0.1"

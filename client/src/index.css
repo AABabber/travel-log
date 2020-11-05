@@ -7,6 +7,23 @@ body {
   width: 100vw;
 }
 
+.error {
+  color: #f05305;
+}
+
+/* DONE: Fix popup showing up behind markers/pins; look into z-index;
+ * resolution below; mapboxgl-marker and mapboxgl-popup already have
+ * 'position' added to them - this allows z-index to work
+ */
+
+.mapboxgl-marker {
+  z-index: 1;
+}
+
+.mapboxgl-popup {
+  z-index: 2;
+}
+
 .marker-existing {
   stroke: #f8c102;
 }
@@ -16,8 +33,16 @@ body {
 }
 
 .popup {
-  width: 40vw;
-  padding: 1rem;
+  width: 30vw;
+  padding: 0.2rem;
+}
+
+.popup img {
+  height: 200px;
+  width: auto;
+  text-align: center;
+  margin: 1rem auto;
+  display: block;
 }
 
 .entry-form label, 

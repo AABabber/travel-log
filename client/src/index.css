@@ -7,10 +7,25 @@ body {
   width: 100vw;
 }
 
-.marker {
+.marker-existing {
   stroke: #f8c102;
 }
 
+.marker-added {
+  stroke: #ff7533;
+}
+
 .popup {
-  max-width: 300px;
+  width: 40vw;
+  padding: 1rem;
+}
+
+.entry-form label, 
+.entry-form input, 
+.entry-form textarea, 
+.entry-form button {
+  font-size: 1.25rem;
+  margin: 0.5rem 0;
+  display: block;
+  width: 100%;
 }
